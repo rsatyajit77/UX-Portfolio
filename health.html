@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusive access to capital in India's Tier 2/3 cities — Satyajit Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a14;--bg-2:#0c1020;--bg-3:#11162a;--ink:#f3f5fb;--ink-dim:#bcc3d8;--ink-faint:#8e96b4;
+  --line:#1c2238;--blue:#4d7cff;--violet:#9b6bff;--yellow:#ffd23f;--green:#3fe08a;--orange:#ff8a3d;--grad:linear-gradient(100deg,#5b8cff 0%,#9b6bff 100%);
+  --display:'Plus Jakarta Sans',-apple-system,sans-serif;--body:'Plus Jakarta Sans',-apple-system,sans-serif;--mono:'Spline Sans Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--violet);color:#fff}
+.bg-fx{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bg-fx .orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.45}
+.bg-fx .o1{top:-220px;left:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(77,124,255,.32),transparent 70%)}
+.bg-fx .o2{top:700px;right:-200px;width:640px;height:640px;background:radial-gradient(circle,rgba(155,107,255,.28),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:880px;margin:0 auto;padding:0 32px}
+.grad-txt{color:#b9c6ff;background:none;-webkit-text-fill-color:#b9c6ff}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;backdrop-filter:blur(14px);background:rgba(7,10,20,.5);border-bottom:1px solid transparent;transition:.4s}
+nav.scrolled{border-color:var(--line);background:rgba(7,10,20,.9)}
+.brand{font-family:var(--mono);font-size:13px;display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink)}
+.brand .logo{width:28px;height:28px;border-radius:7px;object-fit:cover;display:block;border:1px solid var(--line)}
+.back{font-family:var(--mono);font-size:13px;color:var(--ink-dim);text-decoration:none;display:inline-flex;gap:8px;align-items:center;transition:.25s}
+.nav-links{display:flex;gap:30px;font-size:14px;align-items:center}
+.nav-links a{color:var(--ink-dim);text-decoration:none;transition:.25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--grad);color:#fff!important;padding:9px 18px;border-radius:8px;font-weight:600;font-size:13.5px;transition:transform .25s,box-shadow .25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(91,140,255,.35)}
+@media(max-width:760px){.nav-links a:not(.nav-cta){display:none}}
+.back:hover{color:var(--ink)}.back .a{transition:transform .25s}.back:hover .a{transform:translateX(-4px)}
+/* hero */
+header{padding:110px 0 30px}
+.tag{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--yellow);border:1px solid var(--line);border-radius:40px;padding:7px 15px}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(34px,5.2vw,60px);line-height:1.06;letter-spacing:-.025em;margin:24px 0 0;max-width:18ch}
+.dek{font-size:clamp(17px,2vw,21px);color:var(--ink-dim);margin-top:22px;max-width:60ch;line-height:1.55}
+/* meta row */
+.meta{display:flex;flex-wrap:wrap;gap:38px;margin-top:40px;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.meta .m .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.meta .m .v{font-size:15px;margin-top:7px;font-weight:500}
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:36px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--bg-2)}
+@media(max-width:680px){.stats{grid-template-columns:1fr}}
+.stat{padding:36px 30px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+@media(max-width:680px){.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}}
+.kpi-green,.kpi-green *{color:var(--green)!important;-webkit-text-fill-color:var(--green)!important}
+.stat .n{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.4vw,46px);line-height:1;letter-spacing:-.02em}
+.stat .l{font-size:13px;color:var(--ink-dim);margin-top:12px;line-height:1.4}
+/* body */
+section.body{padding:16px 0 6px}
+.block{margin:34px 0}
+.block .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.block h2{font-family:var(--display);font-weight:500;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;margin:12px 0 18px;line-height:1.15}
+.block p{color:var(--ink-dim);font-size:16.5px;line-height:1.75;margin-bottom:16px}
+.block p strong{color:var(--ink);font-weight:600}
+.block ul{list-style:none;margin:18px 0}
+.block li{position:relative;padding-left:26px;color:var(--ink-dim);font-size:16px;line-height:1.7;margin-bottom:12px}
+.block li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.pull{border-left:2px solid;border-image:var(--grad) 1;padding:6px 0 6px 26px;margin:34px 0;font-family:var(--display);font-style:italic;font-size:clamp(20px,2.6vw,26px);line-height:1.4;color:var(--ink)}
+.imgph{margin:34px 0;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));aspect-ratio:16/8;display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-align:center;padding:20px;position:relative;overflow:hidden}
+.imgph::after{content:"";position:absolute;top:-50%;left:-60%;width:50%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);transform:rotate(18deg);animation:sweep 4s ease-in-out infinite}
+@keyframes sweep{0%{left:-60%}60%,100%{left:160%}}
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+/* next / cta */
+.nextwrap{border-top:1px solid var(--line);margin-top:44px;padding:44px 0 24px}
+.next-label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+@media(max-width:600px){.next-grid{grid-template-columns:1fr}}
+.nc{border:1px solid var(--line);border-radius:16px;padding:30px 28px;background:var(--bg-2);text-decoration:none;color:inherit;transition:transform .4s cubic-bezier(.16,1,.3,1),border-color .4s}
+.nc:hover{transform:translateY(-5px);border-color:rgba(91,140,255,.45)}
+.nc .nn{font-family:var(--display);font-weight:600;font-size:32px;letter-spacing:-.02em}
+.nc h4{font-size:15.5px;font-weight:600;margin:10px 0 6px;line-height:1.3}
+.nc .go{font-family:var(--mono);font-size:12px;color:var(--orange);display:inline-flex;gap:7px;align-items:center;margin-top:8px}
+.nc:hover .go{color:var(--orange)}
+.endcta{text-align:center;padding:56px 0 40px}
+.endcta h3{font-family:var(--display);font-weight:500;font-size:clamp(26px,3.6vw,40px);letter-spacing:-.02em;max-width:18ch;margin:0 auto 22px;line-height:1.12}
+.btn{font-family:var(--body);font-size:15px;font-weight:600;text-decoration:none;padding:14px 26px;border-radius:10px;display:inline-flex;gap:9px;align-items:center;transition:transform .25s,box-shadow .25s}
+.btn-primary{background:var(--grad);color:#fff}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(91,140,255,.4)}
+.btn .arr{transition:transform .25s}.btn:hover .arr{transform:translate(3px,-3px)}
+footer{border-top:1px solid var(--line);padding:34px 0;margin-top:40px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ink-faint)}
+.foot a{color:var(--ink-dim);text-decoration:none}.foot a:hover{color:var(--blue)}
+.note{max-width:880px;margin:0 auto;padding:0 32px}
+.note .box{border:1px dashed var(--line);border-radius:12px;padding:16px 20px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);line-height:1.6}
+/* hero banner */
+.hero-banner{position:relative;padding:80px 0 60px;background:linear-gradient(135deg,rgba(107,139,255,.12),rgba(155,107,255,.08));border-bottom:1px solid var(--line);overflow:hidden}
+.hero-banner::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%, rgba(107,139,255,.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(155,107,255,.1), transparent 50%);pointer-events:none}
+.hero-banner .wrap{position:relative;z-index:1}
+.hero-banner .tag{margin-bottom:20px}
+.hero-banner h1{font-size:clamp(40px,6vw,56px);margin-top:16px;line-height:1.08}
+.hero-banner .dek{font-size:clamp(18px,2.2vw,22px);margin-top:20px;max-width:65ch}
+.hero-banner .meta{border:none;padding:0;margin-top:28px}
+</style>
+</head><body>
+<div class="bg-fx"><div class="orb o1"></div><div class="orb o2"></div></div>
+<nav id="nav">
+  <a class="brand" href="../satyajit-portfolio-v2.html"><img class="images/logo" src="logo.png" alt="Bounceball logo">Bounceball</a>
+  <div class="nav-links">
+    <a href="../satyajit-portfolio-v2.html#work">Work</a>
+    <a href="../satyajit-portfolio-v2.html#approach">Approach</a>
+    <a href="../satyajit-portfolio-v2.html#proof">Proof</a>
+    <a href="../satyajit-portfolio-v2.html#contact" class="nav-cta">Let's talk</a>
+  </div>
+</nav>
+<header class="hero-banner"><div class="wrap">
+  <span class="tag">Fintech · Tier 2/3 · Insurance</span>
+  <h1>Inclusive access to capital in India's Tier 2/3 cities</h1>
+  <p class="dek">Turning a confusing health-insurance purchase into a self-service flow that works for first-time digital users on slow connections.</p>
+  <div class="meta"><div class="m"><div class="k">Role</div><div class="v">Design Lead</div></div><div class="m"><div class="k">Team</div><div class="v">PM, 3 eng, 1 researcher</div></div><div class="m"><div class="k">Timeline</div><div class="v">~4 months</div></div><div class="m"><div class="k">Surface</div><div class="v">Mobile web + app</div></div></div>
+</div></header>
+<div class="wrap">
+  <div class="stats reveal"><div class="stat"><div class="n kpi-green grad-txt" data-target="2.4" data-suffix="x">0</div><div class="l">increase in policy purchase completion</div></div><div class="stat"><div class="n grad-txt" data-target="61" data-suffix="%">0</div><div class="l">of purchases completed without agent help</div></div><div class="stat"><div class="n grad-txt" data-target="40" data-suffix="%">0</div><div class="l">drop in support calls during purchase</div></div></div>
+</div>
+<section class="body"><div class="wrap"><div class="block reveal"><span class="kicker">The stakes</span><h2>A market everyone designs past</h2><p>Tier 2/3 users in India are not edge cases. They're the majority of the next hundred million people coming online. But insurance flows are built for confident, high-bandwidth, English-first users. The result: people who needed coverage most abandoned the purchase, or depended entirely on an agent who may not have their interest at heart.</p><div class="pull">Designing for the hard edges of the audience is where the real product lives.</div></div><div class="block reveal"><span class="kicker">The problem</span><h2>Where people dropped off</h2><ul><li>Dense insurance jargon with no plain-language explanation.</li><li>Forms that assumed fast connections and frequent app use.</li><li>No way to compare plans without already understanding the terms.</li><li>Trust gap: users weren't sure the digital flow was safe or real.</li></ul><div style="margin:34px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:36px 32px;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:28px">Purchase funnel · Tier 2/3 users · Before redesign</div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <!-- Step 1 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Landing page</div>
+      <div style="flex:1;background:rgba(77,124,255,0.18);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(91,140,255,.45),rgba(91,140,255,.18));width:100%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">100%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">4,800 sessions</span>
+      </div>
+    </div>
+    <!-- Step 2 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Plan comparison</div>
+      <div style="flex:1;background:rgba(77,124,255,0.08);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(91,140,255,.38),rgba(91,140,255,.12));width:71%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">71%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">3,408 reached</span>
+        <span style="position:relative;margin-left:auto;font-size:11px;color:var(--orange);font-family:var(--mono)">−29% jargon confusion</span>
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Plan selected</div>
+      <div style="flex:1;background:rgba(77,124,255,0.08);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(91,140,255,.32),rgba(91,140,255,.1));width:44%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">44%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">2,112 selected</span>
+        <span style="position:relative;margin-left:auto;font-size:11px;color:var(--orange);font-family:var(--mono)">−27% no-compare drop</span>
+      </div>
+    </div>
+    <!-- Step 4 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Form fill</div>
+      <div style="flex:1;background:rgba(77,124,255,0.08);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(155,107,255,.28),rgba(155,107,255,.08));width:28%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">28%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">1,344 reached</span>
+        <span style="position:relative;margin-left:auto;font-size:11px;color:var(--orange);font-family:var(--mono)">−16% form complexity</span>
+      </div>
+    </div>
+    <!-- Step 5 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Payment</div>
+      <div style="flex:1;background:rgba(77,124,255,0.08);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(155,107,255,.22),rgba(155,107,255,.06));width:18%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink)">18%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">864 attempted</span>
+        <span style="position:relative;margin-left:auto;font-size:11px;color:var(--orange);font-family:var(--mono)">−10% trust gap</span>
+      </div>
+    </div>
+    <!-- Step 6 -->
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);width:160px;flex-shrink:0;text-align:right">Policy issued</div>
+      <div style="flex:1;background:rgba(77,124,255,0.08);border-radius:6px;height:38px;display:flex;align-items:center;padding:0 14px;position:relative">
+        <div style="position:absolute;inset:0;border-radius:6px;background:linear-gradient(90deg,rgba(63,224,138,.3),rgba(63,224,138,.08));width:11%"></div>
+        <span style="position:relative;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--green)">11%</span>
+        <span style="position:relative;margin-left:10px;font-size:12px;color:var(--ink-dim)">528 completed</span>
+        <span style="position:relative;margin-left:auto;font-size:11px;color:var(--green);font-family:var(--mono)">baseline conversion</span>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);display:flex;gap:32px;flex-wrap:wrap">
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Biggest single drop</div><div style="font-size:14px;color:var(--ink);margin-top:5px;font-weight:500">Plan comparison → selection (−27%)</div></div>
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Primary cause</div><div style="font-size:14px;color:var(--ink);margin-top:5px;font-weight:500">No plain-language plan explanation</div></div>
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Agent escalations</div><div style="font-size:14px;color:var(--orange);margin-top:5px;font-weight:500">73% of completions required agent</div></div>
+  </div>
+</div></div><div class="block reveal"><span class="kicker">What I owned</span><h2>My role</h2><p>I led the redesign of the end-to-end purchase, partnered with research to get into the field with actual Tier 2/3 users, and made the call to rebuild around <strong>plain language and progressive disclosure</strong> rather than feature parity with the desktop flow.</p><ul><li>Field research with low-digital-fluency users on real devices and networks.</li><li>Rewrote the flow around questions people could answer, not insurance terms.</li><li>Designed for intermittent connectivity and small screens first.</li><li>Built trust cues into every step so the digital path felt as safe as an agent.</li></ul></div><div class="block reveal"><span class="kicker">The approach</span><h2>Self-service that earns trust</h2><p>We replaced the comparison table full of jargon with a guided conversation: a few questions in plain language, then a recommendation the user could actually understand. Every screen was designed to load and function on a weak connection. And we treated trust as a design material — clear pricing, no hidden steps, and obvious ways to get human help if needed.</p><div style="margin:34px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:36px 32px;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:28px">Plan selection · Before vs. After</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <!-- BEFORE -->
+    <div style="border:1px solid rgba(255,138,61,.2);border-radius:12px;padding:22px;background:rgba(255,138,61,.04)">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);margin-bottom:16px">Before</div>
+      <!-- Comparison table mock -->
+      <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:11px">
+        <div style="background:var(--bg-3);padding:8px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;font-family:var(--mono);color:var(--ink-faint);font-size:10px;letter-spacing:.04em">
+          <div>Feature</div><div>Silver</div><div>Gold</div><div>Platinum</div>
+        </div>
+        <div style="padding:6px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:11px">
+          <div>Sum insured</div><div>₹2L</div><div>₹5L</div><div>₹10L</div>
+        </div>
+        <div style="padding:6px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:11px">
+          <div>Pre-existing</div><div>36m</div><div>24m</div><div>12m</div>
+        </div>
+        <div style="padding:6px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:11px">
+          <div>Sub-limit</div><div>Yes</div><div>Yes</div><div>No</div>
+        </div>
+        <div style="padding:6px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:11px">
+          <div>Co-payment</div><div>20%</div><div>10%</div><div>0%</div>
+        </div>
+        <div style="padding:6px 10px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:4px;border-top:1px solid var(--line);color:var(--ink-dim);font-size:11px">
+          <div>No-claim bonus</div><div>—</div><div>10%</div><div>25%</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;font-size:12px;color:var(--orange);line-height:1.5">Dense jargon. No guidance on which plan fits. User must already understand "sub-limit" and "co-payment" to decide.</div>
+    </div>
+    <!-- AFTER -->
+    <div style="border:1px solid rgba(63,224,138,.2);border-radius:12px;padding:22px;background:rgba(63,224,138,.04)">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--green);margin-bottom:16px">After</div>
+      <!-- Guided question mock -->
+      <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden">
+        <div style="background:var(--bg-3);padding:12px 14px;font-size:12px;color:var(--ink);font-weight:500">How many people will this policy cover?</div>
+        <div style="padding:10px;display:flex;flex-direction:column;gap:7px">
+          <div style="border:1px solid rgba(91,140,255,.4);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--blue);background:rgba(91,140,255,.08)">Just me</div>
+          <div style="border:1px solid var(--line);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--ink-dim)">Me and my spouse</div>
+          <div style="border:1px solid var(--line);border-radius:7px;padding:9px 12px;font-size:12px;color:var(--ink-dim)">My whole family</div>
+        </div>
+        <div style="border-top:1px solid var(--line);padding:12px 14px;background:rgba(63,224,138,.06)">
+          <div style="font-size:11px;color:var(--green);font-family:var(--mono);margin-bottom:6px">Recommended for you</div>
+          <div style="font-size:13px;color:var(--ink);font-weight:600">Gold Plan · ₹5L cover</div>
+          <div style="font-size:11.5px;color:var(--ink-dim);margin-top:3px">Covers hospitalisation up to ₹5 lakh. No out-of-pocket for most treatments. ₹4,200/year.</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;font-size:12px;color:var(--green);line-height:1.5">Plain questions, one recommendation. User never needs to know what "co-payment" means.</div>
+    </div>
+  </div>
+  <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:32px;flex-wrap:wrap">
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Selection rate</div><div style="font-size:14px;color:var(--ink);margin-top:5px;font-weight:500">44% → 86% (+42pp)</div></div>
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Avg. time on step</div><div style="font-size:14px;color:var(--ink);margin-top:5px;font-weight:500">4m 12s → 58s</div></div>
+    <div><div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">"Help me choose" taps</div><div style="font-size:14px;color:var(--ink);margin-top:5px;font-weight:500">67% → 9%</div></div>
+  </div>
+</div></div><div class="block reveal"><span class="kicker">The outcome</span><h2>More people, finishing on their own</h2><p>Completion more than doubled, and most purchases now happen without an agent — which means lower cost to serve and, more importantly, users in control of their own coverage decision.</p><ul><li>2.4x increase in completed purchases.</li><li>61% of purchases completed fully self-service.</li><li>40% fewer support calls during the purchase flow.</li></ul></div><div class="block reveal"><span class="kicker">What I took from it</span><h2>The leadership lesson</h2><p>Inclusive design isn't charity, it's market access. The business case and the user case were the same case: make it usable for the people everyone else designed past, and you unlock the segment everyone else is fighting over. Getting leadership to see those as one argument was the win.</p></div><div class="block reveal"><span class="kicker">Executive Summary</span><h2>Executive Summary</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
+    <div style="padding:32px;border-right:1px solid var(--line)">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px">The problem in one line</div>
+      <p style="font-size:16px;color:var(--ink);line-height:1.6;margin-bottom:0">India's digital health insurer had product-market fit with urban, high-literacy users. The Tier 2/3 segment, 3x the size, churned at the plan-selection step because the product spoke a language most users had never learned.</p>
+    </div>
+    <div style="padding:32px">
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px">The answer in one line</div>
+      <p style="font-size:16px;color:var(--ink);line-height:1.6;margin-bottom:0">Replaced a comparison table requiring insurance literacy with a guided conversation requiring none. Shipped in 14 weeks across mobile web and app, serving 2G connections and first-time smartphone users.</p>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--line);padding:28px 32px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px">What changed, at a glance</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div style="padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em">Phase 1</div>
+        <div style="font-size:13px;color:var(--ink);margin-top:8px;font-weight:600">Discovery</div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:4px">Field visits, 18 users across 3 cities</div>
+      </div>
+      <div style="padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em">Phase 2</div>
+        <div style="font-size:13px;color:var(--ink);margin-top:8px;font-weight:600">Architecture</div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:4px">Rebuilt purchase flow from scratch</div>
+      </div>
+      <div style="padding:18px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em">Phase 3</div>
+        <div style="font-size:13px;color:var(--ink);margin-top:8px;font-weight:600">Design + Test</div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:4px">3 rounds usability testing on-device</div>
+      </div>
+      <div style="padding:18px;border:1px solid rgba(63,224,138,.25);border-radius:10px;background:rgba(63,224,138,.06)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.06em">Outcome</div>
+        <div style="font-size:13px;color:var(--ink);margin-top:8px;font-weight:600">2.4x completion lift</div>
+        <div style="font-size:12px;color:var(--ink-dim);margin-top:4px">61% fully self-service at launch</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Success Metrics</span><h2>Success Metrics</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+    <!-- Primary KPIs -->
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:16px">Primary KPIs</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">Purchase completion rate</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Target: 2x baseline</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--green);font-family:var(--display)">2.4x</div><div style="font-size:11px;color:var(--green)">Achieved</div></div>
+        </div>
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">Self-service rate</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Target: 50% no-agent</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--green);font-family:var(--display)">61%</div><div style="font-size:11px;color:var(--green)">Achieved</div></div>
+        </div>
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">Support call reduction</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Target: 30% drop</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--green);font-family:var(--display)">40%</div><div style="font-size:11px;color:var(--green)">Achieved</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Secondary KPIs -->
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-bottom:16px">Secondary KPIs</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">Time to plan selection</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Was 4m 12s</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--ink);font-family:var(--display)">58s</div><div style="font-size:11px;color:var(--ink-dim)">−77%</div></div>
+        </div>
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">Plan selection rate</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Was 44%</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--ink);font-family:var(--display)">86%</div><div style="font-size:11px;color:var(--ink-dim)">+42pp</div></div>
+        </div>
+        <div style="padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg-3);display:flex;justify-content:space-between;align-items:center">
+          <div><div style="font-size:13px;color:var(--ink);font-weight:500">CSAT (Tier 2/3 cohort)</div><div style="font-size:11px;color:var(--ink-faint);margin-top:3px">Was 3.1/5</div></div>
+          <div style="text-align:right"><div style="font-size:20px;font-weight:600;color:var(--ink);font-family:var(--display)">4.4</div><div style="font-size:11px;color:var(--ink-dim)">+1.3 pts</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Progress bars -->
+  <div style="border-top:1px solid var(--line);padding-top:24px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px">Before vs. After · Funnel health</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-size:12px;color:var(--ink-dim);width:130px;flex-shrink:0">Purchase complete</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:var(--bg-3);position:relative">
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:rgba(91,140,255,.3);width:11%"></div>
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:var(--grad);width:26.4%"></div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-faint);font-family:var(--mono);width:80px;text-align:right">11% → 26%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-size:12px;color:var(--ink-dim);width:130px;flex-shrink:0">Plan selected</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:var(--bg-3);position:relative">
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:rgba(91,140,255,.3);width:44%"></div>
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:var(--grad);width:86%"></div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-faint);font-family:var(--mono);width:80px;text-align:right">44% → 86%</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="font-size:12px;color:var(--ink-dim);width:130px;flex-shrink:0">No agent needed</div>
+        <div style="flex:1;height:8px;border-radius:4px;background:var(--bg-3);position:relative">
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:rgba(91,140,255,.3);width:27%"></div>
+          <div style="position:absolute;left:0;top:0;height:100%;border-radius:4px;background:linear-gradient(90deg,#3fe08a,#5b8cff);width:61%"></div>
+        </div>
+        <div style="font-size:11px;color:var(--ink-faint);font-family:var(--mono);width:80px;text-align:right">27% → 61%</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;margin-top:14px">
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:rgba(91,140,255,.3)"></div><div style="font-size:11px;color:var(--ink-faint)">Before</div></div>
+      <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:var(--grad)"></div><div style="font-size:11px;color:var(--ink-faint)">After</div></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Stakeholder Map</span><h2>Stakeholder Map</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow-x:auto">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">Influence × Interest matrix</div>
+  <!-- 2x2 Matrix -->
+  <div style="display:grid;grid-template-columns:32px 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:0;min-width:520px">
+    <!-- Y-axis label -->
+    <div style="grid-column:1;grid-row:2/4;display:flex;align-items:center;justify-content:center">
+      <div style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase">Influence</div>
+    </div>
+    <!-- X-axis labels -->
+    <div style="grid-column:2;grid-row:1;text-align:center;font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;padding-bottom:8px">Low interest</div>
+    <div style="grid-column:3;grid-row:1;text-align:center;font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;padding-bottom:8px">High interest</div>
+    <!-- Q1: High influence, Low interest → Keep satisfied -->
+    <div style="grid-column:2;grid-row:2;border:1px solid var(--line);border-radius:10px 0 0 0;padding:20px;background:rgba(155,107,255,.06)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Keep satisfied</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:8px 12px;border:1px solid rgba(155,107,255,.2);border-radius:7px;background:rgba(155,107,255,.08)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">CFO / Finance</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Cost-to-serve reduction</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid rgba(155,107,255,.2);border-radius:7px;background:rgba(155,107,255,.08)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Compliance / Legal</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Disclosure requirements</div>
+        </div>
+      </div>
+    </div>
+    <!-- Q2: High influence, High interest → Manage closely -->
+    <div style="grid-column:3;grid-row:2;border:1px solid var(--line);border-left:none;border-radius:0 10px 0 0;padding:20px;background:rgba(91,140,255,.06)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Manage closely</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:8px 12px;border:1px solid rgba(91,140,255,.3);border-radius:7px;background:rgba(91,140,255,.1)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Product VP</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Growth + Tier 2/3 funnel owner</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid rgba(91,140,255,.3);border-radius:7px;background:rgba(91,140,255,.1)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Insurance Partners</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Plan data, pricing accuracy</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid rgba(91,140,255,.3);border-radius:7px;background:rgba(91,140,255,.1)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Engineering Lead</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Low-bandwidth constraints</div>
+        </div>
+      </div>
+    </div>
+    <!-- Q3: Low influence, Low interest → Monitor -->
+    <div style="grid-column:2;grid-row:3;border:1px solid var(--line);border-top:none;border-radius:0 0 0 10px;padding:20px;background:var(--bg-3)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Monitor</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:8px 12px;border:1px solid var(--line);border-radius:7px">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Marketing</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Acquisition messaging alignment</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid var(--line);border-radius:7px">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Customer Support</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Call volume impact</div>
+        </div>
+      </div>
+    </div>
+    <!-- Q4: Low influence, High interest → Keep informed -->
+    <div style="grid-column:3;grid-row:3;border:1px solid var(--line);border-top:none;border-left:none;border-radius:0 0 10px 0;padding:20px;background:rgba(63,224,138,.04)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">Keep informed</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:8px 12px;border:1px solid rgba(63,224,138,.2);border-radius:7px;background:rgba(63,224,138,.06)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Field Research Lead</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">User insights, Tier 2/3 context</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid rgba(63,224,138,.2);border-radius:7px;background:rgba(63,224,138,.06)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">Agent Network</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">In-field trust signals</div>
+        </div>
+        <div style="padding:8px 12px;border:1px solid rgba(63,224,138,.2);border-radius:7px;background:rgba(63,224,138,.06)">
+          <div style="font-size:12px;color:var(--ink);font-weight:500">End Users</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Primary design audience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Y-axis values -->
+  <div style="display:flex;justify-content:space-between;margin-top:8px;padding:0 0 0 40px">
+    <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">← Low influence</div>
+    <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">High influence →</div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Research Plan</span><h2>Research Plan</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px">Research questions</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:12px 14px;border-left:2px solid var(--blue);background:rgba(91,140,255,.06);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink);line-height:1.5">Where exactly do users lose confidence in the purchase flow?</div>
+        <div style="padding:12px 14px;border-left:2px solid var(--blue);background:rgba(91,140,255,.06);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink);line-height:1.5">What mental model do first-time buyers use to judge whether a plan is "right"?</div>
+        <div style="padding:12px 14px;border-left:2px solid var(--blue);background:rgba(91,140,255,.06);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink);line-height:1.5">What signals make a digital purchase feel safe vs. risky on a slow connection?</div>
+        <div style="padding:12px 14px;border-left:2px solid var(--blue);background:rgba(91,140,255,.06);border-radius:0 8px 8px 0;font-size:13px;color:var(--ink);line-height:1.5">When and why do users call an agent instead of completing themselves?</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px">Methods</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg-3)">
+          <div style="font-size:12px;color:var(--yellow);font-family:var(--mono);margin-bottom:4px">Field study</div>
+          <div style="font-size:13px;color:var(--ink)">18 participants · Pune, Nagpur, Surat</div>
+          <div style="font-size:12px;color:var(--ink-dim);margin-top:2px">Observed on their own device, own network</div>
+        </div>
+        <div style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg-3)">
+          <div style="font-size:12px;color:var(--yellow);font-family:var(--mono);margin-bottom:4px">Think-aloud usability</div>
+          <div style="font-size:13px;color:var(--ink)">12 sessions · existing flow</div>
+          <div style="font-size:12px;color:var(--ink-dim);margin-top:2px">Task: "buy a plan for your family"</div>
+        </div>
+        <div style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg-3)">
+          <div style="font-size:12px;color:var(--yellow);font-family:var(--mono);margin-bottom:4px">Funnel analytics</div>
+          <div style="font-size:13px;color:var(--ink)">30-day session data, Tier 2/3 cohort</div>
+          <div style="font-size:12px;color:var(--ink-dim);margin-top:2px">Drop-off events, agent escalation triggers</div>
+        </div>
+        <div style="padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--bg-3)">
+          <div style="font-size:12px;color:var(--yellow);font-family:var(--mono);margin-bottom:4px">Agent interviews</div>
+          <div style="font-size:13px;color:var(--ink)">6 agents · 3 geographies</div>
+          <div style="font-size:12px;color:var(--ink-dim);margin-top:2px">What questions do callers ask most?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--line);padding-top:24px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px">Timeline · 4-week research sprint</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:10px;overflow:hidden">
+      <div style="padding:14px 16px;background:var(--bg-3)"><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Week 1</div><div style="font-size:13px;color:var(--ink);margin-top:4px;font-weight:500">Screener + recruit</div><div style="font-size:11px;color:var(--ink-dim);margin-top:2px">24 screened, 18 selected</div></div>
+      <div style="padding:14px 16px;background:var(--bg-3)"><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Week 2</div><div style="font-size:13px;color:var(--ink);margin-top:4px;font-weight:500">Field visits</div><div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Pune, Nagpur, Surat</div></div>
+      <div style="padding:14px 16px;background:var(--bg-3)"><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Week 3</div><div style="font-size:13px;color:var(--ink);margin-top:4px;font-weight:500">Synthesis</div><div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Affinity mapping, themes</div></div>
+      <div style="padding:14px 16px;background:rgba(91,140,255,.08)"><div style="font-family:var(--mono);font-size:10px;color:var(--blue)">Week 4</div><div style="font-size:13px;color:var(--ink);margin-top:4px;font-weight:500">Readout</div><div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Insights → design brief</div></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Research Insights</span><h2>Research Insights</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Insight 01 · Language</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:500;line-height:1.4;margin-bottom:10px">"Co-payment" was the single most-asked question to agents</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">14 of 18 participants could not define "co-payment" or "sub-limit" unprompted. All 14 abandoned or called for help at plan selection.</p>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Insight 02 · Trust</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:500;line-height:1.4;margin-bottom:10px">The payment step felt "like giving money to a stranger"</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">No confirmation of who the insurer was, no human face, no receipt preview before paying. Users didn't know if the digital flow "counted" like an agent sale.</p>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Insight 03 · Connectivity</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:500;line-height:1.4;margin-bottom:10px">Slow load at payment caused users to hit "pay" twice</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">On 2G/3G connections, payment confirmation took 6-14s. 8 of 12 usability participants tapped the button a second time, fearing the first didn't register.</p>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Insight 04 · Decision model</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:500;line-height:1.4;margin-bottom:10px">Users chose plans by "what happens if I'm in hospital"</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">Not by sum insured or premium. The mental model was scenario-based: "Will I pay anything out of pocket if admitted?" That question wasn't answered anywhere in the existing UI.</p>
+    </div>
+  </div>
+  <div style="border:1px solid rgba(91,140,255,.2);border-radius:12px;background:rgba(91,140,255,.06);padding:20px 24px;display:flex;gap:20px;align-items:flex-start">
+    <div style="font-family:var(--mono);font-size:24px;color:var(--blue);flex-shrink:0;line-height:1">"</div>
+    <div>
+      <p style="font-size:15px;color:var(--ink);line-height:1.65;font-style:italic;margin-bottom:8px">I asked my neighbour. He said just pick the middle one. That's what I did. I don't know if it's right.</p>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">P-07 · 34, Nagpur · First smartphone, 2G data plan</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">JTBD</span><h2>Jobs to Be Done</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">When · I want to · So I can</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <!-- Job 1 -->
+    <div style="border:1px solid var(--line);border-radius:10px;background:var(--bg-3);overflow:hidden">
+      <div style="display:grid;grid-template-columns:6px 1fr;gap:0">
+        <div style="background:var(--blue)"></div>
+        <div style="padding:16px 20px">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">When</div><div style="font-size:13px;color:var(--ink);line-height:1.5">I'm worried about a family member's health costs</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">I want to</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Understand exactly what will be covered without reading fine print</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">So I can</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Feel confident I'm not wasting money on the wrong plan</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Job 2 -->
+    <div style="border:1px solid var(--line);border-radius:10px;background:var(--bg-3);overflow:hidden">
+      <div style="display:grid;grid-template-columns:6px 1fr;gap:0">
+        <div style="background:var(--violet)"></div>
+        <div style="padding:16px 20px">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">When</div><div style="font-size:13px;color:var(--ink);line-height:1.5">I'm comparing plans and see unfamiliar words</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">I want to</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Get a plain-language explanation without leaving the page</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">So I can</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Make the decision myself instead of calling someone</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Job 3 -->
+    <div style="border:1px solid var(--line);border-radius:10px;background:var(--bg-3);overflow:hidden">
+      <div style="display:grid;grid-template-columns:6px 1fr;gap:0">
+        <div style="background:var(--green)"></div>
+        <div style="padding:16px 20px">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">When</div><div style="font-size:13px;color:var(--ink);line-height:1.5">I'm about to pay online for the first time</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">I want to</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Know the transaction is secure and that a policy will actually arrive</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">So I can</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Go through without calling an agent to "confirm it's real"</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Job 4 -->
+    <div style="border:1px solid var(--line);border-radius:10px;background:var(--bg-3);overflow:hidden">
+      <div style="display:grid;grid-template-columns:6px 1fr;gap:0">
+        <div style="background:var(--yellow)"></div>
+        <div style="padding:16px 20px">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">When</div><div style="font-size:13px;color:var(--ink);line-height:1.5">My internet drops mid-purchase</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--yellow);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">I want to</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Pick up exactly where I stopped without re-entering everything</div></div>
+            <div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">So I can</div><div style="font-size:13px;color:var(--ink);line-height:1.5">Finish on my own time, even on a weak connection</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Opportunity Map</span><h2>Opportunity Map</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">Unmet need → Design opportunity → Expected impact</div>
+  <div style="display:flex;flex-direction:column;gap:0">
+    <!-- Header -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:10px 0;border-bottom:1px solid var(--line)">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;padding-right:16px">Unmet need</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;padding-right:16px">Design opportunity</div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em">Impact</div>
+    </div>
+    <!-- Row 1 -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:16px 0;border-bottom:1px solid var(--line);align-items:start">
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--ink);line-height:1.5">No way to understand plan terms without insurance background</div></div>
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--blue);line-height:1.5">Replace comparison table with guided Q&amp;A + plain recommendation</div></div>
+      <div><span style="background:rgba(63,224,138,.12);color:var(--green);font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid rgba(63,224,138,.2)">High</span></div>
+    </div>
+    <!-- Row 2 -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:16px 0;border-bottom:1px solid var(--line);align-items:start">
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--ink);line-height:1.5">No trust signals at payment — feels unsafe for first-time digital payers</div></div>
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--blue);line-height:1.5">Add insurer branding, policy preview, and real-time confirmation during payment</div></div>
+      <div><span style="background:rgba(63,224,138,.12);color:var(--green);font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid rgba(63,224,138,.2)">High</span></div>
+    </div>
+    <!-- Row 3 -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:16px 0;border-bottom:1px solid var(--line);align-items:start">
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--ink);line-height:1.5">Forms break on slow connections; users lose progress and give up</div></div>
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--blue);line-height:1.5">Progressive-save pattern: every step auto-saved; resume link sent via SMS</div></div>
+      <div><span style="background:rgba(63,224,138,.12);color:var(--green);font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid rgba(63,224,138,.2)">High</span></div>
+    </div>
+    <!-- Row 4 -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:16px 0;border-bottom:1px solid var(--line);align-items:start">
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--ink);line-height:1.5">No scenario-based explanation ("if I'm hospitalised, what do I pay?")</div></div>
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--blue);line-height:1.5">Add "what this means for you" plain-language summary card per plan</div></div>
+      <div><span style="background:rgba(255,210,63,.1);color:var(--yellow);font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,210,63,.2)">Med</span></div>
+    </div>
+    <!-- Row 5 -->
+    <div style="display:grid;grid-template-columns:2fr 2fr 1fr;gap:0;padding:16px 0;align-items:start">
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--ink);line-height:1.5">Agent escalation creates dependency; users lose autonomy in decisions</div></div>
+      <div style="padding-right:16px"><div style="font-size:13px;color:var(--blue);line-height:1.5">Contextual "talk to a person" always visible but never the default CTA</div></div>
+      <div><span style="background:rgba(255,210,63,.1);color:var(--yellow);font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,210,63,.2)">Med</span></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Design Principles</span><h2>Design Principles</h2>
+<div style="margin:24px 0;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:28px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:20px;right:20px;font-family:var(--mono);font-size:36px;font-weight:700;color:rgba(91,140,255,.08);line-height:1">01</div>
+    <div style="font-family:var(--mono);font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Speak the user's language</div>
+    <div style="font-size:15px;color:var(--ink);font-weight:500;margin-bottom:10px;line-height:1.3">No jargon. Ever.</div>
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">Every label, prompt, and error must make sense to someone who has never bought insurance. If it requires literacy in the product category, rewrite it as a question the user already knows how to answer.</p>
+  </div>
+  <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:28px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:20px;right:20px;font-family:var(--mono);font-size:36px;font-weight:700;color:rgba(155,107,255,.08);line-height:1">02</div>
+    <div style="font-family:var(--mono);font-size:11px;color:var(--violet);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Trust is a design material</div>
+    <div style="font-size:15px;color:var(--ink);font-weight:500;margin-bottom:10px;line-height:1.3">Make safety visible at every step.</div>
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">First-time digital buyers need explicit signals that the process is real, secure, and reversible. Insurer branding, policy previews, and receipt confirmations are not decoration. They are the product.</p>
+  </div>
+  <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:28px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:20px;right:20px;font-family:var(--mono);font-size:36px;font-weight:700;color:rgba(255,210,63,.07);line-height:1">03</div>
+    <div style="font-family:var(--mono);font-size:11px;color:var(--yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Design for the edge, not the average</div>
+    <div style="font-size:15px;color:var(--ink);font-weight:500;margin-bottom:10px;line-height:1.3">2G, small screen, one hand.</div>
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">Every interaction is designed for the lowest-bandwidth, smallest-screen, least-digital-literate user first. If it works there, it works everywhere. The reverse is not true.</p>
+  </div>
+  <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:28px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:20px;right:20px;font-family:var(--mono);font-size:36px;font-weight:700;color:rgba(63,224,138,.07);line-height:1">04</div>
+    <div style="font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Progressive disclosure</div>
+    <div style="font-size:15px;color:var(--ink);font-weight:500;margin-bottom:10px;line-height:1.3">One decision at a time.</div>
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">Show only what the user needs to act on right now. More detail is always available, but it is never the default. Complexity is revealed only when the user asks for it or the context requires it.</p>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Workflow Architecture</span><h2>Workflow Architecture</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow-x:auto">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">End-to-end system · 3 layers</div>
+  <!-- Layer labels -->
+  <div style="display:grid;grid-template-columns:80px 1fr;gap:16px;min-width:620px">
+    <!-- Row 1: User layer -->
+    <div style="display:flex;align-items:center;justify-content:flex-end;padding-right:8px"><div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em;text-align:right">User<br>layer</div></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div style="padding:10px 14px;border:1px solid rgba(91,140,255,.3);border-radius:8px;background:rgba(91,140,255,.08);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Landing<br><span style="font-size:10px;color:var(--ink-dim)">Entry / awareness</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(91,140,255,.3);border-radius:8px;background:rgba(91,140,255,.08);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Guided Q&amp;A<br><span style="font-size:10px;color:var(--ink-dim)">Needs assessment</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(91,140,255,.3);border-radius:8px;background:rgba(91,140,255,.08);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Recommendation<br><span style="font-size:10px;color:var(--ink-dim)">1 plan, plain copy</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(91,140,255,.3);border-radius:8px;background:rgba(91,140,255,.08);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Form fill<br><span style="font-size:10px;color:var(--ink-dim)">Progressive save</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(63,224,138,.25);border-radius:8px;background:rgba(63,224,138,.08);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Payment + confirm<br><span style="font-size:10px;color:var(--green)">Policy issued</span></div>
+    </div>
+    <!-- Connector line -->
+    <div></div>
+    <div style="display:flex;padding:8px 0">
+      <div style="flex:1;border-top:1px dashed var(--line);margin-top:8px"></div>
+    </div>
+    <!-- Row 2: System layer -->
+    <div style="display:flex;align-items:center;justify-content:flex-end;padding-right:8px"><div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em;text-align:right">System<br>layer</div></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div style="padding:10px 14px;border:1px solid rgba(155,107,255,.25);border-radius:8px;background:rgba(155,107,255,.06);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Session state<br><span style="font-size:10px;color:var(--ink-dim)">Auto-save / resume</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(155,107,255,.25);border-radius:8px;background:rgba(155,107,255,.06);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Plan engine<br><span style="font-size:10px;color:var(--ink-dim)">Rules → match</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(155,107,255,.25);border-radius:8px;background:rgba(155,107,255,.06);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">KYC / validation<br><span style="font-size:10px;color:var(--ink-dim)">Aadhaar / mobile</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(155,107,255,.25);border-radius:8px;background:rgba(155,107,255,.06);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Payment gateway<br><span style="font-size:10px;color:var(--ink-dim)">UPI / netbanking</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">→</div>
+      <div style="padding:10px 14px;border:1px solid rgba(155,107,255,.25);border-radius:8px;background:rgba(155,107,255,.06);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:90px">Policy API<br><span style="font-size:10px;color:var(--ink-dim)">Insurer issuance</span></div>
+    </div>
+    <!-- Connector line -->
+    <div></div>
+    <div style="display:flex;padding:8px 0">
+      <div style="flex:1;border-top:1px dashed var(--line);margin-top:8px"></div>
+    </div>
+    <!-- Row 3: Support layer -->
+    <div style="display:flex;align-items:center;justify-content:flex-end;padding-right:8px"><div style="font-family:var(--mono);font-size:10px;color:var(--yellow);text-transform:uppercase;letter-spacing:.05em;text-align:right">Support<br>layer</div></div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <div style="padding:10px 14px;border:1px solid rgba(255,210,63,.2);border-radius:8px;background:rgba(255,210,63,.05);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:145px">Agent handoff (visible always, used rarely)<br><span style="font-size:10px;color:var(--yellow)">Contextual escalation</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">·</div>
+      <div style="padding:10px 14px;border:1px solid rgba(255,210,63,.2);border-radius:8px;background:rgba(255,210,63,.05);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:145px">SMS resume link<br><span style="font-size:10px;color:var(--yellow)">Connectivity drop recovery</span></div>
+      <div style="color:var(--ink-faint);font-size:16px;flex-shrink:0">·</div>
+      <div style="padding:10px 14px;border:1px solid rgba(255,210,63,.2);border-radius:8px;background:rgba(255,210,63,.05);font-size:12px;color:var(--ink);white-space:nowrap;text-align:center;min-width:145px">Policy delivery (SMS + PDF)<br><span style="font-size:10px;color:var(--yellow)">Offline-safe confirmation</span></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">User Flow</span><h2>User Flow</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">Happy path · First-time self-service buyer</div>
+  <div style="display:flex;flex-direction:column;gap:0">
+    <!-- Step 1 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;flex-shrink:0">1</div>
+        <div style="width:1px;background:var(--line);flex:1;margin:4px 0"></div>
+      </div>
+      <div style="padding:0 0 24px 16px;flex:1">
+        <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">Land on product page</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Arrives from paid search or organic. Sees hero with clear value prop: "Health cover from ₹200/month — no agent needed." Single CTA: "Check plans."</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--blue)">Entry point</div>
+      </div>
+    </div>
+    <!-- Step 2 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;flex-shrink:0">2</div>
+        <div style="width:1px;background:var(--line);flex:1;margin:4px 0"></div>
+      </div>
+      <div style="padding:0 0 24px 16px;flex:1">
+        <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">Answer 4 questions</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Who's covered? Any pre-existing conditions? Preferred hospital type? Budget range? One question per screen. No keyboard required — tap-to-select only.</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--blue)">Guided Q&amp;A · ~58s avg</div>
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;flex-shrink:0">3</div>
+        <div style="width:1px;background:var(--line);flex:1;margin:4px 0"></div>
+      </div>
+      <div style="padding:0 0 24px 16px;flex:1">
+        <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">See one recommendation</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Single recommended plan with plain summary: "If admitted to hospital, you pay ₹0 out of pocket up to ₹5 lakh." Price shown prominently. "Why this plan?" expander for more detail. "Compare all plans" available but not pushed.</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--blue)">Plan recommendation</div>
+      </div>
+    </div>
+    <!-- Step 4 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;flex-shrink:0">4</div>
+        <div style="width:1px;background:var(--line);flex:1;margin:4px 0"></div>
+      </div>
+      <div style="padding:0 0 24px 16px;flex:1">
+        <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">Fill personal details</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Name, DOB, phone, Aadhaar last 4. One field per screen on mobile. Progress bar always visible. "Saved — resume any time" shown after each step. Fields pre-filled where data already known.</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--blue)">Progressive form · auto-save every step</div>
+      </div>
+    </div>
+    <!-- Step 5 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;flex-shrink:0">5</div>
+        <div style="width:1px;background:var(--line);flex:1;margin:4px 0"></div>
+      </div>
+      <div style="padding:0 0 24px 16px;flex:1">
+        <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:4px">Review &amp; pay</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Summary screen: plan name, what it covers, final price. Insurer logo prominently visible. Payment via UPI or netbanking. Animated "processing" state prevents double-tap. Page stays functional offline if connection drops during load.</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--blue)">Trust-first payment step</div>
+      </div>
+    </div>
+    <!-- Step 6 -->
+    <div style="display:flex;gap:0">
+      <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0">
+        <div style="width:32px;height:32px;border-radius:50%;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--green);flex-shrink:0">✓</div>
+      </div>
+      <div style="padding:0 0 8px 16px;flex:1">
+        <div style="font-size:14px;color:var(--green);font-weight:600;margin-bottom:4px">Policy confirmed</div>
+        <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Full-screen success state with policy number, insurer helpline, and download link. SMS confirmation with resume-safe copy also sent. PDF policy dispatched within 4 hours.</div>
+        <div style="margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--green)">Done · no agent required</div>
+      </div>
+    </div>
+    <!-- Escape route -->
+    <div style="margin-top:20px;padding:16px 20px;border:1px dashed rgba(255,138,61,.3);border-radius:10px;background:rgba(255,138,61,.04)">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Escape route · available at all steps</div>
+      <div style="font-size:13px;color:var(--ink-dim);line-height:1.55">Persistent "Talk to someone" link available on every screen — opens click-to-call or WhatsApp. Agent receives full session context so the user doesn't repeat anything.</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">IA</span><h2>Information Architecture</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow-x:auto">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:24px">Content hierarchy · purchase surface</div>
+  <div style="min-width:560px">
+    <!-- Root -->
+    <div style="display:flex;justify-content:center;margin-bottom:0">
+      <div style="padding:12px 24px;border:1px solid rgba(91,140,255,.4);border-radius:8px;background:rgba(91,140,255,.1);font-size:13px;color:var(--ink);font-weight:600;text-align:center">Health Insurance Purchase</div>
+    </div>
+    <!-- Level 1 connector -->
+    <div style="display:flex;justify-content:center"><div style="width:1px;height:20px;background:var(--line)"></div></div>
+    <div style="display:flex;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg-3)">
+      <div style="flex:1;padding:14px 16px;border-right:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:8px">Needs assessment</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Who's covered</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Health conditions</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Hospital preference</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Budget range</div>
+        </div>
+      </div>
+      <div style="flex:1;padding:14px 16px;border-right:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--violet);margin-bottom:8px">Plan selection</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Recommended plan</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Plain summary card</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Why this plan?</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Compare all (secondary)</div>
+        </div>
+      </div>
+      <div style="flex:1;padding:14px 16px;border-right:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);margin-bottom:8px">Application form</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Personal details</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Health declaration</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Nominee details</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Document upload</div>
+        </div>
+      </div>
+      <div style="flex:1;padding:14px 16px">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:8px">Confirm + Pay</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Order review</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Payment (UPI / NB)</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">Success + policy no.</div>
+          <div style="font-size:12px;color:var(--ink-dim);padding:5px 8px;background:var(--bg-2);border-radius:5px">SMS + PDF delivery</div>
+        </div>
+      </div>
+    </div>
+    <!-- Persistent layer -->
+    <div style="margin-top:16px;padding:14px 18px;border:1px dashed var(--line);border-radius:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em;align-self:center">Persistent across all steps →</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div style="font-size:12px;color:var(--ink-dim);padding:5px 10px;border:1px solid var(--line);background:var(--bg-3);border-radius:5px">Progress indicator</div>
+        <div style="font-size:12px;color:var(--ink-dim);padding:5px 10px;border:1px solid var(--line);background:var(--bg-3);border-radius:5px">Auto-save status</div>
+        <div style="font-size:12px;color:var(--orange);padding:5px 10px;border:1px solid rgba(255,138,61,.2);background:rgba(255,138,61,.05);border-radius:5px">Talk to someone</div>
+        <div style="font-size:12px;color:var(--ink-dim);padding:5px 10px;border:1px solid var(--line);background:var(--bg-3);border-radius:5px">Back navigation</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Concept Exploration</span><h2>Concept Exploration</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px">Three directions explored · plan selection step</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+    <!-- Direction A -->
+    <div style="border:1px solid rgba(255,138,61,.2);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 16px;background:rgba(255,138,61,.08);border-bottom:1px solid rgba(255,138,61,.2)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.05em">Direction A</div>
+        <div style="font-size:13px;color:var(--ink);font-weight:600;margin-top:4px">Filtered table</div>
+        <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Improve the existing pattern</div>
+      </div>
+      <div style="padding:16px">
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--bg-3);padding:10px;font-family:var(--mono);font-size:10px;color:var(--ink-dim);line-height:1.8;margin-bottom:12px">
+          [Filter chips: Family / Solo / Senior]<br>
+          ─────────────────<br>
+          Plan name | Price | Cover<br>
+          Silver    | ₹2.1k | ₹2L<br>
+          Gold ●    | ₹4.2k | ₹5L<br>
+          Platinum  | ₹7.8k | ₹10L<br>
+          ─────────────────<br>
+          [View details] [Buy now]
+        </div>
+        <div style="padding:8px 10px;background:rgba(255,138,61,.08);border-radius:6px;font-size:11px;color:var(--orange);line-height:1.5">Rejected: still requires users to interpret plan attributes. Filter chips reduce scope but don't solve literacy gap.</div>
+      </div>
+    </div>
+    <!-- Direction B -->
+    <div style="border:1px solid rgba(91,140,255,.3);border-radius:12px;background:var(--bg-2);overflow:hidden;box-shadow:0 0 0 1px rgba(91,140,255,.15)">
+      <div style="padding:14px 16px;background:rgba(91,140,255,.1);border-bottom:1px solid rgba(91,140,255,.2)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em">Direction B · Selected</div>
+        <div style="font-size:13px;color:var(--ink);font-weight:600;margin-top:4px">Guided Q&amp;A + single rec</div>
+        <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Replace the table entirely</div>
+      </div>
+      <div style="padding:16px">
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--bg-3);padding:10px;font-family:var(--mono);font-size:10px;color:var(--ink-dim);line-height:1.8;margin-bottom:12px">
+          "Who's covered?"<br>
+          [ Just me ] [ Me + spouse ]<br>
+          [ Full family ]<br>
+          ──────────────<br>
+          "Any existing conditions?"<br>
+          [ No ] [ Yes, tell us ]<br>
+          ──────────────<br>
+          ★ Recommended: Gold Plan<br>
+          ₹4,200/yr · ₹0 out of pocket
+        </div>
+        <div style="padding:8px 10px;background:rgba(63,224,138,.08);border-radius:6px;font-size:11px;color:var(--green);line-height:1.5">Chosen: no insurance literacy needed. Single clear output. Fastest path to decision. Tested best with Tier 2/3 cohort.</div>
+      </div>
+    </div>
+    <!-- Direction C -->
+    <div style="border:1px solid rgba(155,107,255,.2);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 16px;background:rgba(155,107,255,.06);border-bottom:1px solid rgba(155,107,255,.2)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em">Direction C</div>
+        <div style="font-size:13px;color:var(--ink);font-weight:600;margin-top:4px">Scenario cards</div>
+        <div style="font-size:11px;color:var(--ink-dim);margin-top:2px">Pick your worry, see your plan</div>
+      </div>
+      <div style="padding:16px">
+        <div style="border:1px solid var(--line);border-radius:8px;background:var(--bg-3);padding:10px;font-family:var(--mono);font-size:10px;color:var(--ink-dim);line-height:1.8;margin-bottom:12px">
+          "What worries you most?"<br>
+          [🏥 Big hospital bills]<br>
+          [💊 Ongoing medicines]<br>
+          [👨‍👩‍👧 Protecting my family]<br>
+          ──────────────<br>
+          → Based on your answer,<br>
+          here's what we suggest...
+        </div>
+        <div style="padding:8px 10px;background:rgba(255,138,61,.08);border-radius:6px;font-size:11px;color:var(--orange);line-height:1.5">Parked: emotionally resonant but took longer to complete. Better fit for re-engagement than first-time purchase. Revisit in V2.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Wireframes</span><h2>Wireframes</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px">Key screens · annotated low-fi</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+
+    <!-- Screen 1: Guided Q&A -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em">Screen 1 · Q&amp;A step</div>
+      <div style="border:2px solid var(--line);border-radius:12px;background:var(--bg-3);padding:14px;position:relative">
+        <!-- Mock phone chrome -->
+        <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2)">
+          <!-- Status bar -->
+          <div style="background:var(--bg);padding:5px 10px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-faint)"><span>9:41</span><span>▮▮▮</span></div>
+          <!-- Progress -->
+          <div style="height:3px;background:var(--line);margin:0 10px"><div style="width:25%;height:100%;background:var(--grad)"></div></div>
+          <div style="padding:12px">
+            <!-- Step label -->
+            <div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint);margin-bottom:8px">Step 1 of 4</div>
+            <!-- Question -->
+            <div style="font-size:12px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.4">Who will this policy cover?</div>
+            <!-- Options -->
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="border:1px solid rgba(91,140,255,.5);border-radius:7px;padding:8px 10px;background:rgba(91,140,255,.1);font-size:11px;color:var(--blue)">● Just me</div>
+              <div style="border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-size:11px;color:var(--ink-dim)">○ Me and my spouse</div>
+              <div style="border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-size:11px;color:var(--ink-dim)">○ My whole family</div>
+            </div>
+            <!-- CTA -->
+            <div style="margin-top:10px;background:var(--grad);border-radius:7px;padding:8px;text-align:center;font-size:11px;color:#fff;font-weight:600">Continue →</div>
+            <!-- Help link -->
+            <div style="text-align:center;margin-top:7px;font-size:10px;color:var(--ink-faint)">Talk to someone instead</div>
+          </div>
+        </div>
+      </div>
+      <!-- Annotations -->
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(91,140,255,.2);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--blue);flex-shrink:0">A</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Progress bar: always visible. Gives users a sense of completion.</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(91,140,255,.2);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--blue);flex-shrink:0">B</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Tap-only selection. No keyboard required on any question.</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(91,140,255,.2);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--blue);flex-shrink:0">C</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Help link always visible but never the primary CTA.</div></div>
+      </div>
+    </div>
+
+    <!-- Screen 2: Plan Recommendation -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em">Screen 2 · Recommendation</div>
+      <div style="border:2px solid var(--line);border-radius:12px;background:var(--bg-3);padding:14px;position:relative">
+        <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2)">
+          <div style="background:var(--bg);padding:5px 10px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-faint)"><span>9:41</span><span>▮▮▮</span></div>
+          <div style="height:3px;background:var(--line);margin:0 10px"><div style="width:100%;height:100%;background:var(--grad)"></div></div>
+          <div style="padding:12px">
+            <div style="font-family:var(--mono);font-size:9px;color:var(--green);margin-bottom:8px">✦ Recommended for you</div>
+            <!-- Plan card -->
+            <div style="border:1px solid rgba(63,224,138,.3);border-radius:8px;padding:10px;background:rgba(63,224,138,.06);margin-bottom:8px">
+              <div style="font-size:13px;color:var(--ink);font-weight:700">Gold Plan</div>
+              <div style="font-size:11px;color:var(--green);margin-top:2px">₹4,200 / year</div>
+              <div style="margin-top:8px;border-top:1px solid rgba(63,224,138,.2);padding-top:8px">
+                <div style="font-size:10px;color:var(--ink-dim);line-height:1.6">If you're admitted to hospital, you pay ₹0 out of pocket — up to ₹5 lakh per year.</div>
+              </div>
+            </div>
+            <!-- Secondary detail -->
+            <div style="font-size:10px;color:var(--blue);text-align:center;margin-bottom:8px">Why this plan? ↓</div>
+            <!-- CTA -->
+            <div style="background:var(--grad);border-radius:7px;padding:8px;text-align:center;font-size:11px;color:#fff;font-weight:600">Select this plan →</div>
+            <div style="text-align:center;margin-top:6px;font-size:10px;color:var(--ink-faint)">Compare all plans</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(155,107,255,.2);border:1px solid var(--violet);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--violet);flex-shrink:0">A</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Single recommended plan. No decision fatigue.</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(155,107,255,.2);border:1px solid var(--violet);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--violet);flex-shrink:0">B</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Summary in plain language: ₹0 out of pocket, not "nil co-payment".</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(155,107,255,.2);border:1px solid var(--violet);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--violet);flex-shrink:0">C</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">"Compare all" is available but deprioritised — below the CTA.</div></div>
+      </div>
+    </div>
+
+    <!-- Screen 3: Payment -->
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:.05em">Screen 3 · Payment</div>
+      <div style="border:2px solid var(--line);border-radius:12px;background:var(--bg-3);padding:14px;position:relative">
+        <div style="border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2)">
+          <div style="background:var(--bg);padding:5px 10px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink-faint)"><span>9:41</span><span>▮▮▮</span></div>
+          <div style="padding:12px">
+            <!-- Trust header -->
+            <div style="border:1px solid var(--line);border-radius:6px;padding:7px 9px;background:var(--bg-3);display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:24px;height:24px;border-radius:4px;background:rgba(91,140,255,.2);display:flex;align-items:center;justify-content:center;font-size:10px">🏦</div>
+              <div><div style="font-size:10px;color:var(--ink);font-weight:600">Star Health Insurance</div><div style="font-size:9px;color:var(--green)">IRDAI licensed · Secured payment</div></div>
+            </div>
+            <!-- Order summary -->
+            <div style="font-size:11px;color:var(--ink-dim);margin-bottom:4px">You're buying</div>
+            <div style="font-size:12px;color:var(--ink);font-weight:600;margin-bottom:2px">Gold Plan · ₹5L cover</div>
+            <div style="font-size:13px;color:var(--ink);font-weight:700;margin-bottom:10px">₹4,200 <span style="font-size:10px;font-weight:400;color:var(--ink-faint)">per year</span></div>
+            <!-- Payment options -->
+            <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:10px">
+              <div style="border:1px solid rgba(91,140,255,.4);border-radius:6px;padding:7px 10px;background:rgba(91,140,255,.08);font-size:11px;color:var(--blue)">● Pay via UPI</div>
+              <div style="border:1px solid var(--line);border-radius:6px;padding:7px 10px;font-size:11px;color:var(--ink-dim)">○ Net banking</div>
+            </div>
+            <!-- Pay CTA -->
+            <div style="background:var(--grad);border-radius:7px;padding:8px;text-align:center;font-size:11px;color:#fff;font-weight:600">Pay ₹4,200 →</div>
+            <div style="text-align:center;margin-top:6px;font-size:9px;color:var(--ink-faint)">🔒 256-bit SSL · Policy sent instantly</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(63,224,138,.2);border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--green);flex-shrink:0">A</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Insurer logo + IRDAI status visible before any payment action.</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(63,224,138,.2);border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--green);flex-shrink:0">B</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Full price shown — no surprise fees after tap.</div></div>
+        <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:rgba(63,224,138,.2);border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8px;color:var(--green);flex-shrink:0">C</div><div style="font-size:11px;color:var(--ink-dim);line-height:1.5">Button disables on tap to prevent double-payment on slow connections.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Design System</span><h2>Design System</h2>
+<div style="margin:24px 0;border:1px solid var(--line);border-radius:14px;background:var(--bg-2);padding:32px;overflow:hidden">
+
+  <!-- Color -->
+  <div style="margin-bottom:32px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px">Color tokens</div>
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px">
+      <div><div style="height:48px;border-radius:8px;background:#5B8CFF;margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--blue</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">#5B8CFF</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Primary CTA, links</div></div>
+      <div><div style="height:48px;border-radius:8px;background:#9B6BFF;margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--violet</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">#9B6BFF</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Gradient pair, accents</div></div>
+      <div><div style="height:48px;border-radius:8px;background:#3FE08A;margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--green</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">#3FE08A</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Success, completion</div></div>
+      <div><div style="height:48px;border-radius:8px;background:#FF8A3D;margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--orange</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">#FF8A3D</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Warnings, friction points</div></div>
+      <div><div style="height:48px;border-radius:8px;background:#FFD23F;margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--yellow</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">#FFD23F</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Neutral callouts</div></div>
+      <div><div style="height:48px;border-radius:8px;background:var(--bg-3);border:1px solid var(--line);margin-bottom:7px"></div><div style="font-family:var(--mono);font-size:10px;color:var(--ink-dim)">--bg-3</div><div style="font-family:var(--mono);font-size:9px;color:var(--ink-faint)">Surface</div><div style="font-size:10px;color:var(--ink-faint);margin-top:2px">Cards, inputs, rows</div></div>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <div style="margin-bottom:32px;border-top:1px solid var(--line);padding-top:28px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px">Type scale</div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:baseline;gap:20px;padding-bottom:12px;border-bottom:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);width:80px;flex-shrink:0">Display</div>
+        <div style="font-family:var(--display);font-size:28px;color:var(--ink);font-weight:700;line-height:1">₹4,200/yr</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Clash Display · 28px · 700 · Plan price, hero stat</div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding-bottom:12px;border-bottom:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);width:80px;flex-shrink:0">H2</div>
+        <div style="font-size:18px;color:var(--ink);font-weight:600;line-height:1.3">Who will this policy cover?</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">16–18px · 600 · Questions, plan names</div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:20px;padding-bottom:12px;border-bottom:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);width:80px;flex-shrink:0">Body</div>
+        <div style="font-size:14px;color:var(--ink-dim);line-height:1.6">If admitted to hospital, you pay ₹0 up to ₹5 lakh.</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">14px · 400 · Plain-language summaries</div>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:20px">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);width:80px;flex-shrink:0">Label</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em">Step 1 of 4</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Mono · 11px · 400 · Progress, metadata</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Component library -->
+  <div style="border-top:1px solid var(--line);padding-top:28px">
+    <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px">Core components</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <div style="border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-bottom:10px">Option tile · unselected / selected</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="border:1px solid var(--line);border-radius:7px;padding:9px 12px;font-size:13px;color:var(--ink-dim)">Just me</div>
+          <div style="border:1.5px solid var(--blue);border-radius:7px;padding:9px 12px;font-size:13px;color:var(--blue);background:rgba(91,140,255,.08);display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block;flex-shrink:0"></span>Me and my spouse</div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-bottom:10px">Plan card · recommended state</div>
+        <div style="border:1px solid rgba(63,224,138,.3);border-radius:8px;padding:12px;background:rgba(63,224,138,.06)">
+          <div style="font-family:var(--mono);font-size:9px;color:var(--green);margin-bottom:5px">✦ Recommended</div>
+          <div style="font-size:13px;color:var(--ink);font-weight:600">Gold Plan</div>
+          <div style="font-size:12px;color:var(--green);margin-top:2px">₹4,200/yr</div>
+          <div style="font-size:11px;color:var(--ink-dim);margin-top:6px;line-height:1.5">₹0 out of pocket up to ₹5L</div>
+        </div>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-bottom:10px">Progress bar + save state</div>
+        <div style="display:flex;gap:4px;margin-bottom:8px">
+          <div style="flex:1;height:4px;border-radius:2px;background:var(--grad)"></div>
+          <div style="flex:1;height:4px;border-radius:2px;background:var(--grad)"></div>
+          <div style="flex:1;height:4px;border-radius:2px;background:var(--line)"></div>
+          <div style="flex:1;height:4px;border-radius:2px;background:var(--line)"></div>
+        </div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint)">Step 2 of 4 · Saved ✓</div>
+        <div style="margin-top:10px;height:44px;border:1px dashed rgba(91,140,255,.3);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--blue)">44px min touch target</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Final Design</span><h2>Final Design</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px">Screen layout · final production UI · descriptive</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+
+    <!-- Layout 1: Q&A step -->
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.05em">Screen A · Guided question</div>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+        <!-- Zone 1 -->
+        <div style="border:1px solid rgba(91,140,255,.2);border-radius:8px;padding:12px;background:rgba(91,140,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:5px">Zone 1 · Header (fixed, 56px)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Logo left · Step progress bar center · Back arrow right. Always stays at top on scroll.</div>
+        </div>
+        <!-- Zone 2 -->
+        <div style="border:1px solid rgba(155,107,255,.2);border-radius:8px;padding:12px;background:rgba(155,107,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--violet);margin-bottom:5px">Zone 2 · Question (auto-height)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Kicker label ("Step 1 of 4") above. H2 question in 18px semi-bold. Left-aligned. Max 2 lines. No icons — text only for clarity at small sizes.</div>
+        </div>
+        <!-- Zone 3 -->
+        <div style="border:1px solid rgba(255,210,63,.2);border-radius:8px;padding:12px;background:rgba(255,210,63,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);margin-bottom:5px">Zone 3 · Option tiles (scroll)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Full-width tap tiles, 44px min height, 8px gap. Selected state: blue border + light fill + filled radio dot. Unselected: neutral border. No checkbox — radio for single-select clarity.</div>
+        </div>
+        <!-- Zone 4 -->
+        <div style="border:1px solid rgba(63,224,138,.2);border-radius:8px;padding:12px;background:rgba(63,224,138,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:5px">Zone 4 · Actions (fixed bottom, 88px)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Primary CTA full-width gradient button. "Talk to someone" as text link below, 14px. Safe area padding for notch phones. Saves session on every tap.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout 2: Recommendation -->
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--violet);text-transform:uppercase;letter-spacing:.05em">Screen B · Plan recommendation</div>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid rgba(91,140,255,.2);border-radius:8px;padding:12px;background:rgba(91,140,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:5px">Zone 1 · Contextual header</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Green "Recommended for you" eyebrow in mono caps. Signals result state, not a step. No back button — user should review before going back.</div>
+        </div>
+        <div style="border:1px solid rgba(63,224,138,.2);border-radius:8px;padding:12px;background:rgba(63,224,138,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:5px">Zone 2 · Recommendation card</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Green-bordered card fills top 40% of content area. Plan name 18px bold. Price 28px Display font. Plain summary below: "₹0 out of pocket up to ₹5 lakh." Single sentence. No bullet lists.</div>
+        </div>
+        <div style="border:1px solid rgba(155,107,255,.2);border-radius:8px;padding:12px;background:rgba(155,107,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--violet);margin-bottom:5px">Zone 3 · Progressive detail</div>
+          <div style="font-size:12px;color:var(--ink-dim)">"Why this plan?" accordion below card. Collapsed by default. Expands to show 3 plain-language benefits. "Compare all plans" text link below accordion — available but passive.</div>
+        </div>
+        <div style="border:1px solid rgba(63,224,138,.2);border-radius:8px;padding:12px;background:rgba(63,224,138,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:5px">Zone 4 · Fixed CTA</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Full-width "Select this plan" gradient button. Below it: agent link. Price repeated in button label to reduce anxiety ("Select · ₹4,200/yr").</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout 3: Form fill -->
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--yellow);text-transform:uppercase;letter-spacing:.05em">Screen C · Progressive form</div>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid rgba(255,210,63,.2);border-radius:8px;padding:12px;background:rgba(255,210,63,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);margin-bottom:5px">Zone 1 · Save status banner</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Slim top banner: "Progress saved. You can resume any time." Green checkmark. Fades after 3s. Reappears on each successful save. Reduces abandonment anxiety on slow networks.</div>
+        </div>
+        <div style="border:1px solid rgba(91,140,255,.2);border-radius:8px;padding:12px;background:rgba(91,140,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:5px">Zone 2 · One field, full screen</div>
+          <div style="font-size:12px;color:var(--ink-dim)">One input field per screen. Label above in 12px. Input large 18px text, full-width. Helper text below in 12px ink-faint. Error state: orange border + inline message. No scrolling required on any step.</div>
+        </div>
+        <div style="border:1px solid rgba(155,107,255,.2);border-radius:8px;padding:12px;background:rgba(155,107,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--violet);margin-bottom:5px">Zone 3 · Keyboard behaviour</div>
+          <div style="font-size:12px;color:var(--ink-dim)">CTA stays above keyboard on focus (not hidden behind it). Numeric fields open numeric keypad. No autocomplete suppression — browser autofill enabled to reduce effort.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout 4: Payment -->
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden">
+      <div style="padding:14px 18px;border-bottom:1px solid var(--line);background:var(--bg-3)">
+        <div style="font-family:var(--mono);font-size:11px;color:var(--green);text-transform:uppercase;letter-spacing:.05em">Screen D · Trust-first payment</div>
+      </div>
+      <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+        <div style="border:1px solid rgba(63,224,138,.2);border-radius:8px;padding:12px;background:rgba(63,224,138,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:5px">Zone 1 · Trust header (highest priority)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Insurer logo prominent top-left. "IRDAI Registered" badge. SSL lock icon. Appears before any payment UI — trust must land before the ask.</div>
+        </div>
+        <div style="border:1px solid rgba(91,140,255,.2);border-radius:8px;padding:12px;background:rgba(91,140,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:5px">Zone 2 · Order summary (no surprises)</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Plan name, what it covers, annual premium — all visible before user taps pay. Inline "Policy number will arrive within 4 hours" sets expectation for the post-payment wait.</div>
+        </div>
+        <div style="border:1px solid rgba(155,107,255,.2);border-radius:8px;padding:12px;background:rgba(155,107,255,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--violet);margin-bottom:5px">Zone 3 · Payment method</div>
+          <div style="font-size:12px;color:var(--ink-dim)">UPI pre-selected (most common in Tier 2/3). Net banking secondary. Card tertiary. Each method uses a full-width radio tile. No nested menus.</div>
+        </div>
+        <div style="border:1px solid rgba(63,224,138,.2);border-radius:8px;padding:12px;background:rgba(63,224,138,.04)">
+          <div style="font-family:var(--mono);font-size:10px;color:var(--green);margin-bottom:5px">Zone 4 · Pay CTA + loading state</div>
+          <div style="font-size:12px;color:var(--ink-dim)">Button disables immediately on tap. Spinner replaces label. Text: "Processing — do not press back." Prevents double-payment. On success: full-screen green confirmation, not a small toast.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Usability Testing</span><h2>Usability Testing</h2>
+<div style="margin:24px 0;overflow:hidden">
+
+  <!-- Rounds summary -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px">
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:22px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Round 1 · Concept validation</div>
+      <div style="font-size:13px;color:var(--ink);font-weight:500;margin-bottom:6px">6 participants · Prototype A vs B</div>
+      <div style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-bottom:10px">Tested guided Q&amp;A against filtered table. 5/6 completed Q&amp;A without help. 1/6 completed table. Direction B confirmed.</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--orange)">Key fix: question 3 ("pre-existing") was confusing. Reworded to "Any ongoing health conditions?"</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:22px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Round 2 · Flow validation</div>
+      <div style="font-size:13px;color:var(--ink);font-weight:500;margin-bottom:6px">8 participants · Full prototype on device</div>
+      <div style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-bottom:10px">Tested on participants' own phones, own SIM cards. Simulated 2G throttling. 7/8 reached payment. 6/8 paid without help.</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--orange)">Key fix: payment button allowed double-tap. Added disable-on-tap + spinner to prevent duplicate attempts.</div>
+    </div>
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:22px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Round 3 · Pre-launch</div>
+      <div style="font-size:13px;color:var(--ink);font-weight:500;margin-bottom:6px">10 participants · High-fidelity, live backend</div>
+      <div style="font-size:13px;color:var(--ink-dim);line-height:1.55;margin-bottom:10px">Real UPI payments. 9/10 completed end-to-end. Average time: 6m 20s. 0 unsolicited agent requests.</div>
+      <div style="font-family:var(--mono);font-size:11px;color:var(--green)">No critical issues. Minor: progress bar text too small at 10px — bumped to 12px.</div>
+    </div>
+  </div>
+
+  <!-- Findings table -->
+  <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);overflow:hidden">
+    <div style="padding:16px 20px;border-bottom:1px solid var(--line);background:var(--bg-3)">
+      <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em">Critical findings · what we changed</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:10px 20px;background:var(--bg-3);border-bottom:1px solid var(--line)">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em">Observation</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em">Design change</div>
+        <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.05em">Round</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:14px 20px;border-bottom:1px solid var(--line);align-items:start">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5">Users paused on "pre-existing disease waiting period"</div>
+        <div style="font-size:13px;color:var(--blue);line-height:1.5">Replaced with "Any ongoing health conditions (diabetes, BP, etc.)?"</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">R1</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:14px 20px;border-bottom:1px solid var(--line);align-items:start">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5">3 participants tapped "Pay" twice on slow connection</div>
+        <div style="font-size:13px;color:var(--blue);line-height:1.5">Button disables on first tap; spinner + "Processing" message shown</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">R2</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:14px 20px;border-bottom:1px solid var(--line);align-items:start">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5">Users unsure if policy was "real" — asked to see a document before paying</div>
+        <div style="font-size:13px;color:var(--blue);line-height:1.5">Added "Policy preview" PDF sample on the review screen</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">R2</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:14px 20px;border-bottom:1px solid var(--line);align-items:start">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5">Progress bar label (10px) unreadable without glasses (3 participants 45+)</div>
+        <div style="font-size:13px;color:var(--blue);line-height:1.5">Bumped progress label to 12px; added step fraction ("2 of 4") in text</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">R3</div>
+      </div>
+      <div style="display:grid;grid-template-columns:3fr 3fr 1fr;padding:14px 20px;align-items:start">
+        <div style="font-size:13px;color:var(--ink);line-height:1.5">One participant dropped network mid-form; couldn't find resume</div>
+        <div style="font-size:13px;color:var(--blue);line-height:1.5">Added SMS resume link sent automatically after step 2</div>
+        <div style="font-family:var(--mono);font-size:11px;color:var(--ink-faint)">R2</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<div class="block reveal"><span class="kicker">What I'd Do Next</span><h2>What I'd Do Next</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Near term · 0–3 months</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:600;margin-bottom:12px;line-height:1.3">Renewal flow redesign</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">The purchase flow is fixed, but first-year renewal is a cliff. Users who bought without an agent often call an agent to renew — recreating the dependency we broke. The renewal experience needs the same plain-language treatment, but with the added challenge of building on a prior year's relationship.</p>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Near term · 0–3 months</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:600;margin-bottom:12px;line-height:1.3">Scenario card concept (Direction C)</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">We parked the "what worries you most?" model after Round 1 because it slowed completion. But it tested extremely well emotionally. I'd run it as a standalone A/B for re-engagement and upsell flows, where users have more time and lower urgency.</p>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Medium term · 3–9 months</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:600;margin-bottom:12px;line-height:1.3">Voice-first alternative</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">A subset of our Tier 2/3 users are low-literacy but highly comfortable with voice (WhatsApp voice notes, calling). A conversational IVR or WhatsApp-bot path that mirrors the guided Q&amp;A in spoken Hindi/Marathi could unlock a segment the current flow still can't serve.</p>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:12px;background:var(--bg-2);padding:24px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">Medium term · 3–9 months</div>
+      <div style="font-size:15px;color:var(--ink);font-weight:600;margin-bottom:12px;line-height:1.3">Claim experience parity</div>
+      <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">We redesigned the buy. But the first time a user actually needs the product, they hit the claim flow — which is still agent-dependent, opaque, and paper-heavy. Trust earned at purchase will evaporate if the claim experience doesn't match. That's the next high-stakes surface.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:16px;padding:20px 24px;border:1px solid rgba(91,140,255,.2);border-radius:12px;background:rgba(91,140,255,.06)">
+    <div style="font-family:var(--mono);font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">The measurement I'd set up now</div>
+    <p style="font-size:14px;color:var(--ink);line-height:1.65;margin-bottom:0">Track 12-month retention and claim CSAT by acquisition channel and flow type. Conversion is the right metric for the purchase redesign. But long-term, the business only wins if the users who now buy themselves also stay, trust the product, and successfully file claims. Those are the metrics that tell you whether inclusive design actually changed the relationship, not just the funnel.</p>
+  </div>
+</div>
+</div>
+<div class="block reveal"><span class="kicker">Future-State AI Vision</span><h2>Future-State AI Vision</h2>
+<div style="margin:24px 0;overflow:hidden">
+  <div style="font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px">What becomes possible when AI is a first-class design material</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px">
+
+    <div style="border:1px solid rgba(91,140,255,.2);border-radius:12px;background:var(--bg-2);padding:22px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(91,140,255,.15),transparent);border-radius:0 12px 0 0"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Adaptive language</div>
+      <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.3">The interface speaks the user's language, literally</div>
+      <p style="font-size:12px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">An LLM layer detects preferred language from device locale and interaction patterns, switching the entire purchase flow to Hindi, Marathi, Tamil, or Bengali without a language-select step. Jargon is auto-translated not just linguistically but conceptually — "co-payment" becomes "your share of the hospital bill."</p>
+    </div>
+
+    <div style="border:1px solid rgba(155,107,255,.2);border-radius:12px;background:var(--bg-2);padding:22px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(155,107,255,.15),transparent);border-radius:0 12px 0 0"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--violet);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Conversational recovery</div>
+      <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.3">Drop-offs trigger a conversation, not a re-marketing email</div>
+      <p style="font-size:12px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">When a user abandons at payment, an AI-powered WhatsApp message asks: "Had a question before you paid? I can help." The bot handles the top 10 objections (refund, document need, trust) without an agent — and hands off with full context if it can't resolve.</p>
+    </div>
+
+    <div style="border:1px solid rgba(63,224,138,.2);border-radius:12px;background:var(--bg-2);padding:22px;position:relative;overflow:hidden">
+      <div style="position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(63,224,138,.12),transparent);border-radius:0 12px 0 0"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Dynamic plan explanation</div>
+      <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.3">Plan summaries generated from the user's own answers</div>
+      <p style="font-size:12px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">Instead of a static copy block, the plan summary is generated dynamically: "Since you have diabetes, your waiting period is 2 years — but after that, all treatment is covered at ₹0." Personalised to their inputs, not averaged to a persona.</p>
+    </div>
+
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+    <div style="border:1px solid rgba(255,210,63,.2);border-radius:12px;background:var(--bg-2);padding:22px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Claim assistant</div>
+      <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.3">Filing a claim becomes as simple as buying was</div>
+      <p style="font-size:12px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">A guided AI claim assistant walks the user through hospitalisation documents, takes photos via camera, auto-fills form fields from OCR, and tracks claim status in plain language. "Your discharge summary is uploaded. Claim is with the insurer. Expected: 7 working days." No PDF email chains, no call centres.</p>
+    </div>
+
+    <div style="border:1px solid rgba(255,138,61,.2);border-radius:12px;background:var(--bg-2);padding:22px">
+      <div style="font-family:var(--mono);font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Design principle for AI features</div>
+      <div style="font-size:14px;color:var(--ink);font-weight:600;margin-bottom:10px;line-height:1.3">AI should reduce the burden of knowing, not add a layer to navigate</div>
+      <p style="font-size:12px;color:var(--ink-dim);line-height:1.6;margin-bottom:0">Every AI capability gets the same filter applied to the existing product: does this make it easier for someone with no insurance literacy to act confidently? A chatbot that answers questions but requires the user to know what to ask is not progress. The bar is: can a first-generation smartphone user complete this without a phone call to a relative?</p>
+    </div>
+
+  </div>
+
+  <!-- Responsible AI note -->
+  <div style="padding:20px 24px;border:1px dashed rgba(91,140,255,.3);border-radius:12px;background:rgba(91,140,255,.04)">
+    <div style="font-family:var(--mono);font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">A note on responsible deployment</div>
+    <p style="font-size:13px;color:var(--ink-dim);line-height:1.65;margin-bottom:0">AI in financial products carries real risk when it confidently misguides. Every AI-generated explanation in this vision needs a disclosure, a human review layer for edge cases, and a clear path to a licensed advisor. The design system includes a "AI-assisted" label on dynamically generated summaries. Trust in the product depends on users knowing what a human wrote and what a machine inferred.</p>
+  </div>
+</div>
+</div>
+</div></section>
+<div class="note"><div class="box">NOTE — placeholder metrics: the numbers on this page are illustrative. Replace with your real results before sharing.</div></div>
+<div class="nextwrap"><div class="wrap">
+  <div class="next-label">More high-stakes work</div>
+  <div class="next-grid"><a class="nc" href="ztp.html"><div class="nn grad-txt">100%</div><h4>Zero-Tolerance Policy Enforcement: from blind spots to real-time risk visibility</h4><div class="go">Read case <span>→</span></div></a><a class="nc" href="clinics.html"><div class="nn grad-txt">11 hrs</div><h4>Broadcast messaging for scaling clinics</h4><div class="go">Read case <span>→</span></div></a></div>
+</div></div>
+<section class="endcta"><div class="wrap">
+  <h3>Building something where the <span class="grad-txt">wrong call</span> gets expensive?</h3>
+  <a class="btn btn-primary" href="../satyajit-portfolio-v2.html#contact">Start a conversation <span class="arr">↗</span></a>
+</div></section>
+<footer><div class="wrap"><div class="foot"><div>© 2026 Satyajit · Design Leadership</div>
+<div style="display:flex;gap:20px;font-family:var(--mono);font-size:13px"><a href="../satyajit-portfolio-v2.html">Home</a><a href="https://www.linkedin.com/in/rsatyajit77/" target="_blank" rel="noopener">LinkedIn</a><a href="https://adplist.org/mentors/satyajit-roy" target="_blank" rel="noopener">ADPList</a><a href="https://github.com/rsatyajit77" target="_blank" rel="noopener">GitHub</a></div></div></div></footer>
+
+<script>
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function ac(el){const raw=el.dataset.target,t=parseFloat(raw),s=el.dataset.suffix||'',p=el.dataset.prefix||'',f=raw.indexOf('.')>-1,d=1500,t0=performance.now();
+function fmt(v){let n=f?v.toFixed(1):Math.round(v).toString();if(!f)n=Number(n).toLocaleString('en-US');return p+n+s}
+function st(now){let pr=Math.min((now-t0)/d,1);pr=1-Math.pow(1-pr,3);el.textContent=fmt(t*pr);if(pr<1)requestAnimationFrame(st);else el.textContent=fmt(t)}requestAnimationFrame(st)}
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){ac(e.target);cio.unobserve(e.target)}}),{threshold:.6});
+document.querySelectorAll('[data-target]').forEach(el=>cio.observe(el));
+</script>
+
+</body></html>
